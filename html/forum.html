@@ -1,0 +1,27 @@
+<h1>FORUM</h1>
+
+<div id="forum" class="row">
+	<div class="col s8">
+		<div class="row">
+	    <form class="col s12">
+	      <div class="row">
+	        <div class="input-field col s12">
+	          <textarea id="newPost" ng-model='user.newPost' class="materialize-textarea"></textarea>
+	          <label for="newPost">Post Content</label>
+	        </div>
+	      </div>
+				<a ng-click='addPost(user)' class="waves-effect waves-light btn">Post</a>
+	    </form>
+	  </div>
+
+	  <ul>
+	    <li ng-repeat='post in forum track by $index'>
+	      <div>
+		      <img ng-src='{{post.image}}' class="postImage">
+		      <p>{{post.post}}</p>
+	      </div>
+	    </li>
+	  </ul>
+
+	</div>
+</div>

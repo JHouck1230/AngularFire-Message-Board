@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Start a Fire</title>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/bower_components/Materialize/dist/css/materialize.min.css">
+    <link rel='stylesheet' href='/css/style.css' />
+
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/Materialize/dist/js/materialize.min.js"></script>
+    <script src="/bower_components/firebase/firebase.js"></script>
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="/bower_components/angularfire/dist/angularfire.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/controllers/authCtrl.js"></script>
+    <script src="/js/controllers/navCtrl.js"></script>
+    <script src="/js/controllers/forumCtrl.js"></script>
+    <script src="/js/services/factories.js"></script>
+    <script src="/js/services/services.js"></script>
+  </head>
+  <body ng-app='forumApp'>
+		<div class='navbar-fixed'>
+		  <nav ng-controller='navCtrl'>
+		    <div class="nav-wrapper">
+		      <a ui-sref='forum' class="brand-logo">Start a Fire</a>
+		      <ul id="nav-mobile" class="right hide-on-med-and-down">
+		      	<li><a ui-sref='forum'>Forum</a></li>
+		        <li ng-show='authData'><a ng-click='logout()'>Log Out</a></li>
+		        <li ng-show='authData'>
+		          <img id='userImage' ng-src='{{authData.password.profileImageURL}}'>
+		        </li>
+		        <li><a ng-hide='authData' ui-sref='login'>Login</a></li>
+		        <li><a ng-hide='authData' ui-sref='register'>Register</a></li>
+		      </ul>
+		    </div>
+		  </nav>
+		</div>
+		<ui-view></ui-view>
+  </body>
+</html>
